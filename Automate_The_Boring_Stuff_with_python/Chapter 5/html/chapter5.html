@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0044)https://automatetheboringstuff.com/chapter5/ -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="automate_website.css">
+  
+  <title>Automatiser de kedelige ting med Python</title>
+</head>
+
+<body>
+  <div class="top_header">
+  <a href="https://automatetheboringstuff.com/">Home</a> | <a href="https://www.nostarch.com/automatestuff">Buy on No Starch Press</a> | <a href="http://www.amazon.com/gp/product/1593275994/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1593275994&amp;linkCode=as2&amp;tag=playwithpyth-20&amp;linkId=HDM7V3T6RHC5VVN4">Buy on Amazon</a> | <a href="https://twitter.com/AlSweigart">@AlSweigart</a> | <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7----- "> <input type="image" src="./pictures/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="./pictures/pixel.gif" width="1" height="1" hidden="" style="display: none !important;">
+          </form></div>
+
+  <div class="main">
+	
+
+<article id="post-114" class="post-114 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">Chapter  5 – Dictionaries og Structurer Data</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p></p><center><a href="chapter4.html"><img src="./pictures/prev.png"></a><a href="index.html"><img src="./pictures/toc.png"></a><a href="chapter6.html"><img src="./pictures/next.png"></a><br>Støtte forfatteren: Køb bogen på <a href="http://www.amazon.com/gp/product/1593275994/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1593275994&amp;linkCode=as2&amp;tag=playwithpyth-20&amp;linkId=2KIYOE7RFLG7D2RJ">Amazon</a> or<br><a href="http://www.nostarch.com/automatestuff">bogen / ebook-bundtet direkte fra No Starch Press</a>.<br><a href="http://www.nostarch.com/automatestuff"><img class=" size-full wp-image-49 aligncenter" src="./pictures/automate_small_cover.png" alt="small_cover" width="170" height="225"></a><br><a href="https://inventwithpython.com/">Læs forfatterens andre gratis python bøger:</a><br><a href="https://inventwithpython.com/chapters"><img src="./pictures/smallcover_invent.png" width="120"></a> <a href="https://inventwithpython.com/pygame/chapters"><img src="./pictures/smallcover_makinggames.png" width="120"></a> <a href="https://inventwithpython.com/hacking/chapters"><img src="./pictures/smallcover_hacking.png" width="120"></a></center><p></p>
+<div class="calibre" id="calibre_link-94">
+<div class="book" title="Chapter 5. Dictionaries and Structuring Data">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h1 class="title1"><a id="calibre_link-2369" class="firstname"></a>Dictionaries og Data Strukturering</h1>
+</div>
+</div>
+</div>
+<!--<p><a href="https://youtu.be/o3m8XhnVDWs" ><img src="/images/youtubelogo.png"> Lesson 17 - Dictionaries, Key-Value Pairs, the keys() values(), items(), get(), and setdefault() Dictionary Methods, and the pprint() Function</a></p>-->
+<p class="calibre4"><a id="calibre_link-213" class="calibre1"></a><a id="calibre_link-398" class="calibre1"></a><a id="calibre_link-419" class="calibre1"></a><a id="calibre_link-461" class="calibre1"></a><a id="calibre_link-868" class="calibre1"></a><a id="calibre_link-936" class="calibre1"></a>I dette kapitel dækker jeg ordbogen datatypen, som giver en fleksibel måde at få adgang til og organisere data. Derefter lærer du at kombinere ordbøger med din viden om lister fra det foregående kapitel, hvordan du opretter en datastruktur til at modelere et tic-tac-toe bord.</p>
+<div class="book" title="The Dictionary Data Type">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h1 class="title2"><a id="calibre_link-2370" class="firstname"></a>Dictionary Data Typen</h1>
+</div>
+</div>
+</div>
+<p class="calibre4">Som en liste er en <span class = "calibre1"> <em class = "calibre5"> dictonary</em></span> en samling af mange værdier. Men i modsætning til indekser for lister kan indekser for ordbøger bruge mange forskellige datatyper, ikke kun heltal. Indekser for ordbøger kaldes <span class = "calibre1"> <em class = "calibre5"> nøgler</em></span>, og en nøgle med tilhørende værdi kaldes en <span class = "calibre1"> <em class = "calibre5"> nøgleværdipar</em></span>.</p>
+<p class = "calibre4"> I kode er en ordbog skrevet med tuborg klammer, <code class = "literal1">{}</code>. Indtast følgende i den interaktive kommando linje:</p>
+<p><a id="calibre_link-2371" class="calibre1"></a>
+</p><pre class="programlis6ting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">myCat = {'size': 'fat', 'color': 'grey', 'disposition': 'loud'}</strong></span></pre>
+<p class="calibre4"><a id="calibre_link-462" class="calibre1"></a><a id="calibre_link-870" class="calibre1"></a><a id="calibre_link-1007" class="calibre1"></a>Dette tildeler en dictonary til variablen <code class = "literal1"> myCat</code>. Denne dictonary's nøgler er <code class = "literal1"> 'size'</code>, <code class = "literal1"> 'color'</code> og <code class = "literal1"> 'disposition'</code>. Værdierne for disse nøgler er <code class = "literal1"> 'fat'</code>, <code class = "literal1"> 'grey'</code> og <code class = "literal1"> 'loud'</code>, henholdsvis. Du kan få adgang til disse værdier gennem deres nøgler:</p>
+<p><a id="calibre_link-2372" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">myCat['size']</strong></span>
+'fat'
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'My cat has ' + myCat['color'] + ' fur.'</strong></span>
+'My cat has grey fur.'</pre>
+<p class="calibre4"> Ordbøger kan stadig bruge heltalværdier som nøgler, ligesom lister bruger heltal til indekser, men de behøver ikke starte ved <code class = "literal1">0</code> og kan være et hvilket som helst nummer.</p>
+<p><a id="calibre_link-2373" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam = {12345: 'Luggage Combination', 42: 'The Answer'}</strong></span></pre>
+<div class="book" title="Dictionaries vs. Lists">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2374" class="firstname"></a>Dictionaries vs. Lists</h2>
+</div>
+</div>
+</div>
+<p class="calibre4">I modsætning til lister er poster i dictonary uordnet. Det første element i en liste med navnet <code class = "literal1">spam</code> ville være <code class = "literal1"> spam[0]</code>. Men der er ikke noget "første" emne i en dictonary. Mens rækkefølgen af emner er afgørende for at afgøre, om to lister er de samme, betyder det ikke noget i hvilken rækkefølge de nøgleværdige par er skrevet i en dictionary. Indtast følgende i den interaktive skal:</p>
+<p><a id="calibre_link-2375" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam = ['cats', 'dogs', 'moose']</strong></span>
+<span class="calibre1"><strong class="literal">&gt;&gt;&gt; bacon = ['dogs', 'moose', 'cats']</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam == bacon</strong></span>
+False
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">eggs == ham</strong></span>
+True</pre>
+<p class="calibre4">Da ordbøger ikke bestilles, kan de ikke skives som lister.</p>
+<p class="calibre4">Hvis du forsøger at få adgang til en nøgle, der ikke findes i en ordbog, vil det resultere i en <code class = "literal1">KeyError</code> fejlmeddelelse, ligesom en liste uden for området har <code class = "literal1">IndexError</code> fejlmeddelelsen. Indtast følgende i den interaktive skal, og bemærk den fejlmeddelelse, der vises, fordi der ikke er nogen <code class = "literal1">'farve'</code> nøgle:</p>
+<p><a id="calibre_link-2376" class="calibre1"></a>
+</p><pre class="programlisting"><span class="calibre1"><strong class="literal">&gt;&gt;&gt; spam = {'name': 'Zophie', 'age': 7}</strong></span>
+<span class="calibre1"><strong class="literal">&gt;&gt;&gt; spam['color']</strong></span>
+Traceback(most recent call last):
+  File "&lt;pyshell#1&gt;", line 1, in &lt;module&gt;
+    spam['color']
+KeyError: 'color'</pre>
+<p class="calibre4">Selvom ordbøger ikke er ordnet, kan det faktum, at du har vilkårlige værdier for tasterne, give dig mulighed for at organisere dine data på magtfulde måder. Tænk du ønskede, at dit program skal gemme data om dine venners fødselsdage. Du kan bruge en ordbog med navnene som nøgler og fødselsdage som værdier. Åbn et nyt filredigeringsvindue og indtast følgende kode. Gem det som <span class = "calibre1"> <em class = "calibre5"> birthdays.py</em></span>.</p>
+<p><a id="calibre_link-2377" class="calibre1"></a>
+</p><pre class="programlisting">❶ birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
+
+   while True:
+       print('Enter a name:(blank to quit)')
+       name = input()
+       if name == '':
+           break
+
+❷     if name in birthdays:
+❸         print(birthdays[name] + ' is the birthday of ' + name)
+       else:
+           print('I do not have birthday information for ' + name)
+           print('What is their birthday?')
+           bday = input()
+❹         birthdays[name] = bday
+           print('Birthday database updated.')</pre>
+<p class="calibre4"><a id="calibre_link-463" class="calibre1"></a><a id="calibre_link-464" class="calibre1"></a><a id="calibre_link-465" class="calibre1"></a><a id="calibre_link-911" class="calibre1"></a><a id="calibre_link-937" class="calibre1"></a><a id="calibre_link-1065" class="calibre1"></a><a id="calibre_link-1066" class="calibre1"></a><a id="calibre_link-1067" class="calibre1"></a><a id="calibre_link-1781" class="calibre1"></a>Du opretter en begyndende ordbog og gemmer den i <code class="literal1">birthdays</code> ❶. Du kan se om det indtastede navn eksisterer som en nøgle i ordbogen med <code class = "literal1"></code> søgeord ❷, som du gjorde for lister. Hvis navnet står i ordbogen, får du adgang til den tilknyttede værdi ved hjælp af firkantede parenteser ❸; Hvis ikke, kan du tilføje den ved hjælp af den samme firkantparanteser kombineret med tildelingsoperatøren ❹.</p>
+<p class="calibre4">Når du kører dette program, vil det se sådan ud:</p>
+<p><a id="calibre_link-2378" class="calibre1"></a>
+</p><pre class="programlisting">Enter a name:(blank to quit)
+<span class="calibre1"><strong class="literal">Alice</strong></span>
+Apr 1 is the birthday of Alice
+Enter a name:(blank to quit)
+<span class="calibre1"><strong class="literal">Eve</strong></span>
+I do not have birthday information for Eve
+What is their birthday?
+<span class="calibre1"><strong class="literal">Dec 5</strong></span>
+Birthday database updated.
+Enter a name:(blank to quit)
+<span class="calibre1"><strong class="literal">Eve</strong></span>
+Dec 5 is the birthday of Eve
+Enter a name:(blank to quit)</pre>
+<p class="calibre4">Selvfølgelig glemmes alle de data, du indtaster i dette program, når programmet afslutter. Du lærer at gemme data til filer på harddisken i<a class="ulink" href="chapter8.html" title="Chapter 8. Skriv og læs filer">Chapter&nbsp;8</a>.</p>
+</div>
+<div class="book" title="The keys(), values(), and items() Methods">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2379" class="firstname"></a>The keys(), values(), and items() Methods</h2>
+</div>
+</div>
+</div>
+<p class="calibre4">Der er tre ordbogs metoder, der returnerer liste lignende værdier af ordboksens nøgler, værdier eller begge nøgler og værdier: <code class = "literal1"> keys()</code>, <code class = "literal1"> values()</code> og <code class = "literal1"> items()</code>. Værdierne returneret af disse metoder er ikke sande lister: De kan ikke ændres og har ikke en <code class = "literal1"> append()</code> metode. Men disse datatyper(<code class = "literal1"> dict_keys</code>, <a id="calibre_link-703" class="calibre1"> </a> <code class = "literal1"> dict_values</code>, og <code class="literal1">dict_items</code>, respektivt) <span class="calibre1"><em class="calibre5">kan</em></span> bruges i <code class = "literal1"> for </code> løkker. For at se, hvordan disse metoder fungerer, skal du indtaste følgende i den interaktive skal:</p>
+<p><a id="calibre_link-2380" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam = {'color': 'red', 'age': 42}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">for v in spam.values():</strong></span>
+        <span class="calibre1"><strong class="literal">print(v)</strong></span>
+
+red
+42</pre>
+<p class="calibre4">Her gentages en <code class = "literal1"> for</code> loop for hver af værdierne i <code class = "literal1"> spam</code> ordbogen. En <code class = "literal1"> for</code> loop kan også gentage over nøglerne eller begge nøgler og værdier:</p>
+<p><a id="calibre_link-2381" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">for k in spam.keys():</strong></span>
+        <span class="calibre1"><strong class="literal">print(k)</strong></span>
+
+color
+age
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">for i in spam.items():</strong></span>
+        <span class="calibre1"><strong class="literal">print(i)</strong></span>
+
+('color', 'red')
+('age', 42)</pre>
+<p class="calibre4">Ved hjælp af <code class = "literal1"> tasterne()</code>, <code class = "literal1"> værdierne()</code> og <code class = "literal1"> elementer()</code> metoder, en <code class = "literal1"> til</code> loop kan gentage sig over nøgler, værdier eller nøgleværdipar i henholdsvis en ordbog. Bemærk, at værdierne i <code class = "literal1"> dict_items</code> -værdien returneret af <code class = "literal1"> elementer()</code> -metoden er tuples af nøglen og værdien.</p >
+<p class = "calibre4"> Hvis du vil have en liste fra en af disse metoder, skal du sende sin listelignende returværdi til funktionen <code class = "literal1"> list()</code>. Indtast følgende i den interaktive skal:</p>
+<p><a id="calibre_link-2382" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam = {'color': 'red', 'age': 42}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam.keys()</strong></span>
+dict_keys(['color', 'age'])
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">list(spam.keys())</strong></span>
+['color', 'age']</pre>
+<p class="calibre4"><Code class = "literal1"> listen(spam.keys())</code> linjen tager værdien <code class = "literal1"> dict_keys</code> tilbage fra <code class = "literal1"> keys( )</code> og sender det til <code class = "literal1"> list()</code>, som derefter returnerer en listeværdi på <code class = "literal1"> ['color', 'age'] </code>.</p>
+<p class = "calibre4"> Du kan også bruge felere tildelings nummeret i en <code class = "literal1"> for</code> løkke ved at tildele nøglen og værdien for at adskille variabler. Indtast følgende i den interaktive skal:</p>
+<p><a id="calibre_link-2383" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam = {'color': 'red', 'age': 42}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">for k, v in spam.items():</strong></span>
+        <span class="calibre1"><strong class="literal">print('Key: ' + k + ' Value: ' + str(v))</strong></span>
+
+Key: age Value: 42
+Key: color Value: red</pre>
+</div>
+<div class="book" title="Checking Whether a Key or Value Exists in a Dictionary">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2384" class="firstname"></a>Kontrol af, om en nøgle eller værdi findes i en ordbog</h2>
+</div>
+</div>
+</div>
+<p class="calibre4"><a id="calibre_link-466" class="calibre1"></a><a id="calibre_link-467" class="calibre1"></a><a id="calibre_link-468" class="calibre1"></a><a id="calibre_link-740" class="calibre1"></a><a id="calibre_link-877" class="calibre1"></a><a id="calibre_link-1068" class="calibre1"></a><a id="calibre_link-1161" class="calibre1"></a>Husk fra det foregående kapitel, at <code class = "literal1"> in</code> og <code class = "literal1"> not in</code> operatører kan tjekke, om en værdi  findes i en liste. Du kan også bruge disse operatører til at se, om der findes en bestemt nøgle eller værdi i en ordbog. Indtast følgende i den interaktive skal:</p>
+<p><a id="calibre_link-2385" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam = {'name': 'Zophie', 'age': 7}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'name' in spam.keys()</strong></span>
+True
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'Zophie' in spam.values()</strong></span>
+True
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'color' in spam.keys()</strong></span>
+False
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'color' not in spam.keys()</strong></span>
+True
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'color' in spam</strong></span>
+False</pre>
+<p class="calibre4">I det foregående eksempel skal du bemærke, at <code class = "literal1"> 'farve' i spam</code> er i det væsentlige en kortere version af skrivning <code class = "literal1"> 'color' i spam.keys()</code>. Dette er altid tilfældet: Hvis du nogensinde vil kontrollere, om en værdi er(eller ikke er) en nøgle i ordbogen, kan du simpelthen bruge <code class = "literal1"> i</code>(eller <kode class = "literal1"> ikke i</code>) søgeord med selve ordbogens værdi.</p>
+</div>
+<div class="book" title="The get() Method">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2386" class="firstname"></a>Metoden get()</h2>
+</div>
+</div>
+</div>
+<p class="calibre4">Det er kedeligt at kontrollere, om der findes en nøgle i en ordbog, før man har adgang til den nøglens værdi. Heldigvis har ordbøger en <code class = "literal1"> get()</code> metode, der tager to argumenter: nøglen til værdien for at hente og en reurn værdi, hvis den nøgle ikke findes.</p>
+<p class = "calibre4"> Indtast følgende i den interaktive skal:</p>
+<p><a id="calibre_link-2387" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">picnicItems = {'apples': 5, 'cups': 2}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'I am bringing ' + str(picnicItems.get('cups', 0)) + ' cups.'</strong></span>
+'I am bringing 2 cups.'
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'I am bringing ' + str(picnicItems.get('eggs', 0)) + ' eggs.'</strong></span>
+'I am bringing 0 eggs.'</pre>
+<p class="calibre4">Fordi der ikke er nogen <code class = "literal1"> 'eggs'</code> nøgle i <code class = "literal1"> picnicItems</code> ordbog, er standardværdien <code class = "literal1"> 0 </code> der returneres af metoden <code class = "literal1"> get()</code>. Uden at bruge <code class = "literal1"> get()</code>, ville koden have forårsaget en fejlmeddelelse, som i følgende eksempel:</p>
+<p><a id="calibre_link-2388" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">picnicItems = {'apples': 5, 'cups': 2}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'</strong></span>
+Traceback(most recent call last):
+  File "&lt;pyshell#34&gt;", line 1, in &lt;module&gt;
+    'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'
+KeyError: 'eggs'</pre>
+</div>
+<div class="book" title="The setdefault() Method">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2389" class="firstname"></a>Metoden setdefault()</h2>
+</div>
+</div>
+</div>
+<p class="calibre4"><a id="calibre_link-469" class="calibre1"></a><a id="calibre_link-1069" class="calibre1"></a><a id="calibre_link-1570" class="calibre1"></a>Du skal ofte sætte en værdi i en ordbog for en given nøgle, hvis ikke nøglen allerede har en værdi. Koden ser sådan ud:</p>
+<p><a id="calibre_link-2390" class="calibre1"></a>
+</p><pre class="programlisting">spam = {'name': 'Pooka', 'age': 5}
+if 'color' not in spam:
+    spam['color'] = 'black'</pre>
+<p class="calibre4">Metoden <code class = "literal1"> setdefault()</code> giver mulighed for at gøre dette med en linje kode. Det første argument, der går videre til metoden, er nøglen til at kontrollere efter, og det andet argument er værdien, der skal indstilles på den pågældende nøgle, hvis nøglen ikke findes. Hvis nøglen eksisterer, returnerer metoden <code class = "literal1"> setdefault()</code> nøglen værdien. Indtast følgende i den interaktive skal:</p>
+<p><a id="calibre_link-2391" class="calibre1"></a>
+</p><pre class="programlisting">&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam = {'name': 'Pooka', 'age': 5}</strong></span>
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam.setdefault('color', 'black')</strong></span>
+'black'
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam</strong></span>
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam.setdefault('color', 'white')</strong></span>
+'black'
+&gt;&gt;&gt; <span class="calibre1"><strong class="literal">spam</strong></span>
+{'color': 'black', 'age': 5, 'name': 'Pooka'}</pre>
+<p class="calibre4">Første gang <code class = "literal1"> setdefault()</code> kaldes ændres ordbogen i <code class = "literal1"> spam</code> til <code class="literal1">{'color': 'black', 'age': 5, 'name': 'Pooka'}</code>. Metoden returnerer værdien <code class = "literal1"> 'black'</code>, fordi det nu er værdien for nøglen <code class="literal1">'color'</code>. Når <code class="literal1">spam.setdefault('color', 'white')</code> kaldes næste, værdien for den nøgle er <span class = "calibre1"> <em class = "calibre5"> ikke</em></span> ændret til <code class="literal1">'white'</code> fordi <code class="literal1">spam</code> allerede har en nøgle med navn <code class="literal1">'color'</code>.</p>
+<p class="calibre4">Metoden <code class = "literal1"> setdefault()</code> er en god genvej for at sikre, at der findes en nøgle. Her er et kort program, der tæller antallet af forekomster af hvert bogstav i en streng. Åbn fileditor-vinduet og indtast følgende kode, gem det som <span class = "calibre1"> <em class = "calibre5"> characterCount.py</em></span>:</p>
+<p><a id="calibre_link-2392" class="calibre1"></a>
+</p><pre class="programlisting">message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+print(count)</pre>
+<p class="calibre4">The program loops over each character in the <code class="literal1">message</code> variable’s string, counting how often each character appears. The <code class="literal1">setdefault()</code> method call ensures that the key is in the <code class="literal1">count</code> dictionary(with a default value of <code class="literal1">0</code>) <a id="calibre_link-1250" class="calibre1"></a><a id="calibre_link-1294" class="calibre1"></a>so the program doesn’t throw a <code class="literal1">KeyError</code> error when <code class="literal1">count[character] = count[character] + 1</code> is executed. When you run this program, the output will look like this:</p>
+Programmet kigger på hvert tegn i <code class = "literal1">message</code> variabelns streng, og tæller hvor ofte hvert tegn optræder. Metoden <code class = "literal1"> setdefault()</code> sikrer, at nøglen er i <code class = "literal1"> count</code> ordbogen(med en standardværdi på <code class = " literal1 "> 0</code>) <a id="calibre_link-1250" class="calibre1"> </a> <a id="calibre_link-1294" class="calibre1"> </a> så programmet ikke smider en <code class = "literal1"> KeyError</code> fejl, når <code class = "literal1"> count[character] = count[character] + 1</code> udføres. Når du kører dette program, ser svaret således ud:
+<p><a id="calibre_link-2393" class="calibre1"></a>
+</p><pre class="programlisting">{' ': 13, ',': 1, '.': 1, 'A': 1, 'I': 1, 'a': 4, 'c': 3, 'b': 1, 'e': 5, 'd': 3, 'g': 2, 'i':
+6, 'h': 3, 'k': 2, 'l': 3, 'o': 2, 'n': 4, 'p': 1, 's': 3, 'r': 5, 't': 6, 'w': 2, 'y': 1}</pre>
+<p class="calibre4">Fra svaret kan du se, at den lille bogstav <span class = "calibre1"> <em class = "calibre5"> c</em></span> vises 3 gange, mellemrumstegnet vises 13 gange, og store bogstaver brev <span class = "calibre1"> <em class="calibre5">A</em></span> vises 1 gang. Dette program vil fungere uanset hvilken streng der er inde i <code class = "literal1">message</code> variabel, selvom strengen er millioner af tegn lange!</p>
+</div>
+</div>
+<div class="book" title="Pretty Printing">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h1 class="title2"><a id="calibre_link-87" class="firstname"></a>Smuk Printing</h1>
+</div>
+</div>
+</div>
+<p class="calibre4">Hvis du importerer modulet <code class = "literal1"> pprint</code> til dine programmer, har du adgang til <code class = "literal1"> pprint()</code> og <code class = " literal1 "> pformat()</code> funktioner, der vil" pretty print "en ordbogs værdier. Dette er nyttigt, når du vil have en renere visning af emnerne i en ordbog end hvad <code class = "literal1"> print()</code> giver. Rediger det tidligere <span class = "calibre1"> <em class = "calibre5"> characterCount.py</em></span> program og gem det som <span class="calibre1"><em class="calibre5">prettyCharacterCount.py</em></span>.</p>
+<p><a id="calibre_link-2394" class="calibre1"></a>
+</p><pre class="programlisting"><span class="calibre1"><strong class="literal">import pprint</strong></span>
+message = 'It was a bright cold day in April, and the clocks were striking
+thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+<span class="calibre1"><strong class="literal">pprint.pprint</strong></span>(count)</pre>
+<p class="calibre4">Denne gang, når programmet køres, ser udgangen meget renere ud, med nøglerne sorteret.</p>
+<p><a id="calibre_link-2395" class="calibre1"></a>
+</p><pre class="programlisting">{' ': 13,
+ ',': 1,
+ '.': 1,
+ 'A': 1,
+ 'I': 1,
+ 'a': 4,
+ 'b': 1,
+ 'c': 3,
+ 'd': 3,
+ 'e': 5,
+ 'g': 2,
+ 'h': 3,
+ 'i': 6,
+ 'k': 2,
+ 'l': 3,
+ 'n': 4,
+ 'o': 2,
+ 'p': 1,
+ 'r': 5,
+ 's': 3,
+ 't': 6,
+ 'w': 2,
+ 'y': 1}</pre>
+<p class="calibre4"><a id="calibre_link-231" class="calibre1"></a><a id="calibre_link-406" class="calibre1"></a>Funktionen <code class = "literal1"> pprint.pprint()</code> er særlig nyttig, når ordbogen selv indeholder nestede lister eller ordbøger.</P>
+<p class = "calibre4"> Hvis du vil hente den smukt rettede tekst som en strengværdi i stedet for at vise den på skærmen, skal du i stedet kalde <code class = "literal1"> pprint.pformat()</code>. Disse to linjer svarer til hinanden:</p>
+<p><a id="calibre_link-2396" class="calibre1"></a>
+</p><pre class="programlisting">pprint.pprint(someDictionaryValue)
+print(pprint.pformat(someDictionaryValue))</pre>
+</div>
+<div class="book" title="Using Data Structures to Model Real-World Things">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h1 class="title2"><a id="calibre_link-2397" class="firstname"></a>Brug af datastrukturer til Model Real-World Things</h1>
+</div>
+</div>
+</div>
+<!--<p><a href="https://youtu.be/mf28IhDfMGk" ><img src="/images/youtubelogo.png"> Lesson 18 - Data Structures with a Tic Tac Toe Board Example</a></p>-->
+<p class="calibre4">Selv før internettet var det muligt at spille et skakspil med nogen på den anden side af verden. Hver spiller ville oprette et skakbræt i deres hjem og derefter skifte til at sende et postkort til hinanden, der beskriver hver enkelt bevægelse. For at gøre dette havde spillerne brug for en entydig beskrivelse af styrets tilstand og deres bevægelser.</p>
+<p class="calibre4">In <span class="calibre1"><em class="calibre5">algebraic chess notation</em></span>, mellemrummet på skakbrættet identificeres med et tal og en bogstavkoordinat som i <a class="ulink" href="chapter5.html#calibre_link-1894" title="Figure 5-1. The coordinates of a chessboard in algebraic chess notation">Figure&nbsp;5-1</a>.</p>
+<div class="figure"><a id="calibre_link-1894" class="calibre1"></a>
+<div class="book">
+<div class="book"><a id="calibre_link-2398" class="calibre1"></a><img src="./pictures/000002.jpg" alt="The coordinates of a chessboard in algebraic chess notation" class="calibre8"></div>
+</div>
+<p class="title4">Figure&nbsp;5-1.&nbsp;Koordinaterne for et skakbræt i algebraisk skak notation</p>
+</div>
+<p class="calibre4">Skakstykkerne er identificeret ved bogstaver: <span class = "calibre1"> <em class = "calibre5"> K</em></span> til konge <span class = "calibre1"> <em class = "calibre5 "></Em></span> for dronning <span class =" calibre1 "> <em class =" calibre5 "> R</em></span> <em class = "calibre5"> B</em></span> for biskop, og <span class = "calibre1"> <em class = "calibre5"> N</em></span> for ridder. Beskrivelsen af ​​et træk bruger stykket af stykket og koordinaterne for dets destination. Et par af disse bevægelser beskriver <a id="calibre_link-407" class="calibre1"> </a> <a id="calibre_link-1719" class="calibre1"> </a> hvad der sker i en enkelt tur(med hvid først) for eksempel notationen <span class = "calibre1"> <em class = "calibre5"> 2. Nf3 Nc6</em></span> angiver at hvid flyttede en ridder til f3 og sort flyttede en ridder til c6 i anden omgang af spillet.</P>
+<p class = "calibre4"> Der er lidt mere til algebraisk notation end dette, men pointen er, at du kan bruge den til entydigt at beskrive et spil skak uden at skulle være foran et skakbræt. Din modstander kan endda være på den anden side af verden! Faktisk behøver du ikke engang et fysisk skaksæt, hvis du har en god hukommelse: Du kan bare læse de sendte skakbevægelser og opdateringsbrædder, du har i din fantasi.</p>
+<p class = "calibre4"> Computere har en god hukommelse. Et program på en moderne computer kan nemt gemme milliarder af strenge som <code class = "literal1"> '2. Nf3 Nc6 '</code>. Sådan kan computere spille skak uden at have et fysisk skakbræt. De modellerer data til at repræsentere et skakbræt, og du kan skrive kode til at arbejde med denne model.</P>
+<p class = "calibre4"> Her kan lister og ordbøger komme ind. Du kan bruge dem til at modellere virkelige ting, som skakbræt. For det første eksempel bruger du et spil, der er lidt enklere end skak: tic-tac-toe.</p>
+<div class="book" title="A Tic-Tac-Toe Board">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2399" class="firstname"></a>Et Kryds og Bolle Bræt</h2>
+</div>
+</div>
+</div>
+<p class="calibre4">En tic-tac-toe bord ser ud som et stort hash-symbol(#) med ni slots, der hver kan indeholde en <span class = "calibre1"> <em class = "calibre5"> X</em></span> en <span class = "calibre1"> <em class = "calibre5"> O</em></span> eller et tomt. For at repræsentere brættet med en ordbog kan du tildele hver slot en strengværdi-nøgle, som vist i <a class="ulink" href="chapter5.html#calibre_link-1895" title="Figure 5-2. The slots of a tic-tactoe board with their corresponding keys">Figure&nbsp;5-2</a>.</p>
+<p class="calibre4">Du kan bruge strengværdier til at repræsentere, hvad der er i hver slot på tavlen: <code class = "literal1"> 'X'</code>, <code class = "literal1"> 'O'</code> eller <code class = "literal1"> ''</code>(et mellemrum). Således skal du lagre ni strenge. Du kan bruge en ordbog af værdier til dette. Strengenværdien med nøglen <code class = "literal1"> 'top-R'</code> kan repræsentere øverste højre hjørne, strengværdien med nøglen <code class = "literal1"> 'low-L'</code> kan repræsentere det nederste venstre hjørne, strengværdien med nøglen <code class = "literal1"> 'mid-M'</code> kan repræsentere midten og så videre.</p>
+<div class="figure"><a id="calibre_link-1895" class="calibre1"></a>
+<div class="book">
+<div class="book"><a id="calibre_link-2400" class="calibre1"></a><img src="./pictures/000003.png" alt="The slots of a tic-tactoe board with their corresponding keys" class="calibre8"></div>
+</div>
+<p class="title4">Figure&nbsp;5-2.&nbsp;Slots af en tic-taktoe bord med deres tilsvarende nøgler</p>
+</div>
+<p class="calibre4">Denne ordbog er en datastruktur, der repræsenterer et tic-tac-toe bord. Gem dette board-as-a-dictionary i en variabel med navnet <code class = "literal1"> theBoard</code>. Åbn et nyt filredigeringsvindue, og indtast følgende kildekode, gem den som <span class="calibre1"><em class="calibre5">ticTacToe.py</em></span>:</p>
+<p><a id="calibre_link-2401" class="calibre1"></a>
+</p><pre class="programlisting">theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</pre>
+<p class="calibre4">Datastrukturen gemt i <code class="literal1">theBoard</code> variabel repræsenterer tic-tactoe board i <a class="ulink" href="chapter5.html#calibre_link-1896" title="Figure 5-3. An empty tic-tac-toe board">Figure&nbsp;5-3</a>.</p>
+<div class="figure"><a id="calibre_link-1896" class="calibre1"></a>
+<div class="book">
+<div class="book"><a id="calibre_link-2402" class="calibre1"></a><img src="./pictures/000006.png" alt="An empty tic-tac-toe board" class="calibre8"></div>
+</div>
+<p class="title4">Figure&nbsp;5-3.&nbsp;En tom tic-tac-toe bord</p>
+</div>
+<p class="calibre4">Eftersom værdien for hver nøgle i <code class = "literal1"> theBoard</code> er en enkeltstrengstreng, denne ordbog repræsenterer et helt klart bord. Hvis spiller X gik først og valgte mellemrummet, kunne du repræsentere det bord med denne ordbog:</p>
+<p><a id="calibre_link-2403" class="calibre1"></a>
+</p><pre class="programlisting">theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': 'X', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</pre>
+<p class="calibre4">Datastrukturen i <code class="literal1">theBoard</code> repræsenterer nu tic-tac-toe bordet i <a class="ulink" href="chapter5.html#calibre_link-1897" title="Figure 5-4. The first move">Figure&nbsp;5-4</a>.</p>
+<div class="figure"><a id="calibre_link-1897" class="calibre1"></a>
+<div class="book">
+<div class="book"><a id="calibre_link-2404" class="calibre1"></a><img src="./pictures/000008.png" alt="The first move" class="calibre8"></div>
+</div>
+<p class="title4">Figure&nbsp;5-4.&nbsp;Det første skridt</p>
+</div>
+<p class="calibre4">Et bord hvor spiller O har vundet ved at placere <span class="calibre1"><em class="calibre5">O</em></span>s på tværs af toppen kan se sådan ud:</p>
+<p><a id="calibre_link-2405" class="calibre1"></a>
+</p><pre class="programlisting">theBoard = {'top-L': 'O', 'top-M': 'O', 'top-R': 'O',
+            'mid-L': 'X', 'mid-M': 'X', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}</pre>
+<p class="calibre4">Datastrukturen i <code class="literal1">theBoard</code> repræsenterer nu tic-tac-toe bordet i <a class="ulink" href="chapter5.html#calibre_link-1898" title="Figure 5-5. Player O wins.">Figure&nbsp;5-5</a>.</p>
+<div class="figure"><a id="calibre_link-1898" class="calibre1"></a>
+<div class="book">
+<div class="book"><a id="calibre_link-2406" class="calibre1"></a><img src="./pictures/000010.png" alt="Player O wins." class="calibre8"></div>
+</div>
+<p class="title4">Figure&nbsp;5-5.&nbsp;Player O wins.</p>
+</div>
+<p class="calibre4">Selvfølgelig ser spilleren kun, hvad der er trykt på skærmen, ikke indholdet af variabler. Lad os oprette en funktion til at udskrive board-ordbogen på skærmen. Lav følgende tilføjelse til <span class="calibre1"><em class="calibre5">ticTacToe.py</em></span>(new code is in bold):</p>
+<p><a id="calibre_link-2407" class="calibre1"></a>
+</p><pre class="programlisting">theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
+<span class="calibre1"><strong class="literal">def printBoard(board):</strong></span>
+    <span class="calibre1"><strong class="literal">print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])</strong></span>
+    <span class="calibre1"><strong class="literal">print('-+-+-')</strong></span>
+    <span class="calibre1"><strong class="literal">print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])</strong></span>
+    <span class="calibre1"><strong class="literal">print('-+-+-')</strong></span>
+    <span class="calibre1"><strong class="literal">print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])</strong></span>
+<span class="calibre1"><strong class="literal">printBoard(theBoard)</strong></span></pre>
+<p class="calibre4">Når du kører dette program, <code class="literal1">printBoard()</code> vil udskrive en blank tic-tactoe bord.</p>
+<p><a id="calibre_link-2408" class="calibre1"></a>
+</p><pre class="programlisting">| |
+-+-+-
+| |
+-+-+-
+| |</pre>
+<p class="calibre4"><code class="literal1">printBoard()</code> funktionen kan håndtere enhver tic-tac-toe data struktur du passerer den. Prøv at ændre koden til følgende:</p>
+<p><a id="calibre_link-2409" class="calibre1"></a>
+</p><pre class="programlisting">theBoard = <span class="calibre1"><strong class="literal">{'top-L': 'O', 'top-M': 'O', 'top-R': 'O', 'mid-L': 'X', 'mid-M':</strong></span>
+<span class="calibre1"><strong class="literal">'X', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}</strong></span>
+
+def printBoard(board):
+    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+    print('-+-+-')
+    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+    print('-+-+-')
+    print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+printBoard(theBoard)</pre>
+<p class="calibre4">Nu, når du kører dette program, vil det nye kort blive udskrevet på skærmen.</p>
+<p><a id="calibre_link-2410" class="calibre1"></a>
+</p><pre class="programlisting">O|O|O
+-+-+-
+X|X|
+-+-+-
+| |X</pre>
+<p class="calibre4">Fordi du har oprettet en datastruktur til at repræsentere et tic-tac-toe bord og skrev kode i <code class = "literal1"> printBoard()</code> for at fortolke datastrukturen, har du nu et program, som "modeller" tic-tac-toe bord. Du kunne have organiseret din datastruktur forskelligt(f.eks. Ved at bruge nøgler som <code class = "literal1"> "TOP-LEFT"</code> i stedet for <code class = "literal1"> 'top-L'</code >), men så længe koden fungerer sammen med dine datastrukturer, har du et korrekt arbejdsprogram.</p>
+<p class = "calibre4"> For eksempel forventer funktionen <code class = "literal1"> printBoard()</code> tic-tac-toe datastrukturen at være en ordbog med nøgler til alle ni slots. Hvis den ordbog, du bestod, manglede, siger <code class = "literal1"> 'mid-L'</code> -tasten, ville dit program ikke længere fungere.</p>
+<p><a id="calibre_link-2411" class="calibre1"></a>
+</p><pre class="programlisting">O|O|O
+-+-+-
+Traceback(most recent call last):
+  File "ticTacToe.py", line 10, in &lt;module&gt;
+    printBoard(theBoard)
+  File "ticTacToe.py", line 6, in printBoard
+    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+KeyError: 'mid-L'</pre>
+<p class="calibre4">Lad os nu tilføje kode, der gør det muligt for spillerne at indtaste deres træk. Ændre programmet <span class = "calibre1"> <em class = "calibre5"> ticTacToe.py</em></span> for at se sådan ud:</p>
+<p><a id="calibre_link-2412" class="calibre1"></a>
+</p><pre class="programlisting">   theBoard = <span class="calibre1"><strong class="literal">{'top-L': ' ', 'top-M': ' ', 'top-R': ' ', 'mid-L': ' ', 'mid-M': '</strong></span>
+   <span class="calibre1"><strong class="literal">', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</strong></span>
+
+   def printBoard(board):
+       print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+       print('-+-+-')
+       print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+       print('-+-+-')
+       print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+   <span class="calibre1"><strong class="literal">turn = 'X'</strong></span>
+   <span class="calibre1"><strong class="literal">for i in range(9):</strong></span>
+❶      <span class="calibre1"><strong class="literal">printBoard(theBoard)</strong></span>
+        <span class="calibre1"><strong class="literal">print('Turn for ' + turn + '. Move on which space?')</strong></span>
+❷      <span class="calibre1"><strong class="literal">move = input()</strong></span>
+❸      <span class="calibre1"><strong class="literal">theBoard[move] = turn</strong></span>
+❹      <span class="calibre1"><strong class="literal">if turn == 'X':</strong></span>
+            <span class="calibre1"><strong class="literal">turn = 'O'</strong></span>
+        <span class="calibre1"><strong class="literal">else:</strong></span>
+            <span class="calibre1"><strong class="literal">turn = 'X'</strong></span>
+   printBoard(theBoard)</pre>
+<p class="calibre4"><a id="calibre_link-470" class="calibre1"></a><a id="calibre_link-1008" class="calibre1"></a><a id="calibre_link-1154" class="calibre1"></a>Den nye kode udskriver styret i starten af hver ny tur ❶, får den aktive spillerens bevægelse ❷, opdaterer spilbrættet tilsvarende ❸, og bytter derefter den aktive afspiller ❹, inden den fortsætter til næste tur.</P>
+<p class = "calibre4"> Når du kører dette program, ser det sådan ud:</p>
+<p><a id="calibre_link-2413" class="calibre1"></a>
+</p><pre class="programlisting"> | |
+-+-+-
+ | |
+-+-+-
+ | |
+Drej til X. Flyt på hvilket rum?
+<span class="calibre1"><strong class="literal">mid-M</strong></span>
+ | |
+-+-+-
+ |X|
+-+-+-
+ | |
+Drej til O. Flyt på hvilket rum?
+<span class="calibre1"><strong class="literal">low-L</strong></span>
+ | |
+-+-+-
+ |X|
+-+-+-
+O| |
+
+--<span class="calibre1"><em class="literal3">snip</em></span>--
+
+O|O|X
+-+-+-
+X|X|O
+-+-+-
+O| |X
+Drej til X. Flyt på hvilket rum?
+<span class="calibre1"><strong class="literal">low-M</strong></span>
+O|O|X
+-+-+-
+X|X|O
+-+-+-
+O|X|X</pre>
+<p class="calibre4">Dette er ikke et komplet tic-tac-toe spil, for eksempel, it never checks if a player has won - but it's enough to see how data structures can be used in applications.</p>
+<div class="note" title="Note">
+<h3 class="title5"><a id="calibre_link-2414" class="calibre1"></a>Bemærk</h3>
+<p class="calibre4"><span class="calibre1"><em class="calibre5">Hvis du er nysgerrig, er kildekoden for et komplet tic-tac-toe-program beskrevet i de tilgængelige ressourcer fra</em></span> <a class="ulink" href="http://nostarch.com/automatestuff/">http://nostarch.com/automatestuff/</a>.</p>
+</div>
+</div>
+<div class="book" title="Nested Dictionaries and Lists">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2415" class="firstname"></a>Nested Dictionaries and Lists</h2>
+</div>
+</div>
+</div>
+<p class="calibre4">Modeling et tic-tac-toe bord var ret simpelt: bestyrelsen behøvede kun en enkelt ordbog værdi med ni nøgle-værdi par. Når du modellerer mere komplicerede ting, kan du finde ud af, at du har brug for ordbøger og lister, der indeholder andre ordbøger og lister. Lister er nyttige til at indeholde en ordnet række værdier, og ordbøger er nyttige til at forbinde nøgler med værdier. For eksempel er her et program, der bruger en ordbog, der indeholder andre ordbøger for at se, hvem der bringer hvad til en picnic. Funktionen <code class = "literal1"> totalBrought()</code> kan læse denne datastruktur og beregne det samlede antal af en vare, der bringes af alle gæsterne.</p>
+<p><a id="calibre_link-2416" class="calibre1"></a>
+</p><pre class="programlisting">   allGuests = {'Alice': {'apples': 5, 'pretzels': 12},
+                'Bob': {'ham sandwiches': 3, 'apples': 2},
+                'Carol': {'cups': 3, 'apple pies': 1}}
+
+   def totalBrought(guests, item):
+       numBrought = 0
+❶     for k, v in guests.items():
+❷         numBrought = numBrought + v.get(item, 0)
+       return numBrought
+
+   print('Number of things being brought:')
+   print(' - Apples         ' + str(totalBrought(allGuests, 'apples')))
+   print(' - Cups           ' + str(totalBrought(allGuests, 'cups')))
+   print(' - Cakes          ' + str(totalBrought(allGuests, 'cakes')))
+   print(' - Ham Sandwiches ' + str(totalBrought(allGuests, 'ham sandwiches')))
+   print(' - Apple Pies     ' + str(totalBrought(allGuests, 'apple pies')))</pre>
+<p class="calibre4">Inde i <code class = "literal1"> totalBrought()</code> -funktionen gentager <code class = "literal1"> til</code> loop over nøgleværdipar i <code class = "literal1"> gæster</code> ❶. Inden for sløjfen er strengen af gæstens navn tildelt <code class = "literal1"> k</code>, og ordbogen af picnic-genstande, de bringer, er tildelt <code class = "literal1"> v </code>. Hvis elementparameteren findes som en nøgle i denne ordbog, er den værdi(mængden) tilføjet til <code class = "literal1"> numBrought</code> ❷. Hvis den ikke findes som en nøgle, returnerer <code class = "literal1"> get()</code> metoden <code class = "literal1"> 0</code>, der skal tilføjes til <code class = "literal1 "> numBrought</code>.</p>
+<p class = "calibre4"> Udgangen af dette program ser sådan ud:</p>
+<p><a id="calibre_link-2417" class="calibre1"></a>
+</p><pre class="programlisting">Number of things being brought:
+- Apples 7
+- Cups 3
+- Cakes 0
+- Ham Sandwiches 3
+- Apple Pies     1</pre>
+<p class="calibre4">Dette kan virke som en simpel ting at modelere, at du ikke behøver at genere med at skrive et program til at gøre det. Men indse at denne samme <code class = "literal1"> totalBrought()</code> -funktion nemt kunne håndtere en ordbog, der indeholder tusindvis af gæster, som hver bringer <span class = "calibre1"> <em class = "calibre5"> tusinder</em></span> af forskellige picnic elementer. Hvis du har disse oplysninger i en datastruktur sammen med funktionen <code class = "literal1"> totalBrought()</code> vil du spare meget tid!</P>
+<p class = "calibre4"> Du kan modellere ting med datastrukturer, uanset hvordan du kan lide, så længe resten af koden i dit program kan fungere korrekt sammen med datamodellen. Når du først begynder at programmere, så bekymre dig ikke så meget om den rigtige måde at model data på. Da du får mere erfaring, kan du komme med mere effektive modeller, men det vigtige er, at datamodellen fungerer for dit programs behov.</p>
+</div>
+</div>
+<div class="book" title="Summary">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h1 class="title2"><a id="calibre_link-2418" class="firstname"></a>Opsummering</h1>
+</div>
+</div>
+</div>
+<p class="calibre4">Du lærte alt om ordbøger i dette kapitel. Lister og ordbøger er værdier, som kan indeholde flere værdier, herunder andre lister og ordbøger. Ordbøger er nyttige, fordi du kan kortlægge et element(nøglen) til en anden(værdien), i modsætning til lister, der blot indeholder en række værdier i rækkefølge. Værdier inde i en ordbog åbnes ved hjælp af firkantede parenteser ligesom med lister. I stedet for et heltal indeks kan ordbøger have nøgler til en række datatyper: heltal, flyder, strenge eller tupper. Ved at organisere et programs værdier i datastrukturer, kan du oprette repræsentationer af virkelige objekter. Du så et eksempel på dette med et tic-tac-toe bord.</p>
+</div>
+<div class="book" title="Practice Questions">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h1 class="title2"><a id="calibre_link-2419" class="firstname"></a>Øvelsesspørgsmål</h1>
+</div>
+</div>
+</div>
+<div class="book" title="Frequently Asked Questions"><a id="calibre_link-2420" class="calibre1"></a><br>
+<table border="0" width="100%" summary="Q and A Set" class="calibre22">
+<colgroup><col width="1%" class="calibre23">
+<col class="calibre11">
+</colgroup><tbody class="calibre16">
+<tr class="calibre13" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2421" class="calibre1"></a><a id="calibre_link-2422" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">1. Hvad ser koden for en tom ordbog ud?</p>
+</td>
+</tr>
+<tr class="calibre19" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2423" class="calibre1"></a><a id="calibre_link-2424" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">2. Hvad ligner en ordbog værdi med en nøgle <code class = "literal2"> 'foo'</code> og en værdi <code class = "literal2"> 42</code> ligner?</p>
+</td>
+</tr>
+<tr class="calibre13" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2425" class="calibre1"></a><a id="calibre_link-2426" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">3. Hvad er den største forskel mellem en ordbog og en liste?</p>
+</td>
+</tr>
+<tr class="calibre19" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2427" class="calibre1"></a><a id="calibre_link-2428" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">4. Hvad sker der, hvis du prøver at få adgang til <code class = "literal2"> spam ['foo']</code> hvis <code class = "literal2"> spam</code> er <code class="literal2">{'bar': 100}</code>?</p>
+</td>
+</tr>
+<tr class="calibre13" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2429" class="calibre1"></a><a id="calibre_link-2430" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">5. Hvis en ordbog er gemt i <code class = "literal2"> spam</code>, hvad er forskellen mellem udtrykkene <code class = "literal2"> 'cat' in spam</code> og <code class="literal2">'cat' in spam.keys()</code>?</p>
+</td>
+</tr>
+<tr class="calibre19" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2431" class="calibre1"></a><a id="calibre_link-2432" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">6. Hvis en ordbog er gemt i <code class = "literal2"> spam</code>, hvad er forskellen mellem udtrykkene <code class="literal2">'cat' in spam</code> og <code class="literal2">'cat' in spam.values()</code>?</p>
+</td>
+</tr>
+<tr class="calibre13" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2433" class="calibre1"></a><a id="calibre_link-2434" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">7. Hvad er genvejen for følgende kode?</p>
+<p><a id="calibre_link-2435" class="calibre1"></a>
+</p><pre class="programlisting2">if 'color' not in spam:
+    spam['color'] = 'black'</pre>
+</td>
+</tr>
+<tr class="calibre19" title="Q:">
+<td valign="top" class="calibre21"><a id="calibre_link-2436" class="calibre1"></a><a id="calibre_link-2437" class="calibre1"></a>
+<p class="calibre4">Q:</p>
+</td>
+<td valign="top" class="calibre21">
+<p class="calibre4">8. Hvilket modul og funktion kan bruges til "pretty print" ordbog værdier?</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="book" title="Practice Projects">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h1 class="title2"><a id="calibre_link-2438" class="firstname"></a>Øvelsesprojekter</h1>
+</div>
+</div>
+</div>
+<p class="calibre4">Til praksis, skriv programmer til at udføre følgende opgaver.</p>
+<div class="book" title="Fantasy Game Inventory">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2439" class="firstname"></a>Fantasy Game Lager</h2>
+</div>
+</div>
+</div>
+<p class="calibre4">Du laver et fantasy videospil. Datastrukturen til at model spillernes opgørelse vil være en ordbog, hvor nøglerne er strengværdier, der beskriver elementet i opgørelsen, og værdien er et helt tal, der angiver, hvor mange af det pågældende element spilleren har. Ordlisteværdien <code class = "literal1"> {'rope': 1, 'fakkel': 6, 'guldmønter': 42, 'dagger': 1, 'pil': 12}</code> betyder at spilleren har 1 reb, 6 fakler, 42 guldmønter og så videre.</p>
+<p class = "calibre4"> Skriv en funktion ved navn <code class = "literal1"> displayInventory()</code>, der ville tage enhver mulig "lager" og vise den som følgende:</p>
+<p><a id="calibre_link-2440" class="calibre1"></a>
+</p><pre class="programlisting">Inventory:
+12 arrow
+42 gold coin
+1 rope
+6 torch
+1 dagger
+Total number of items: 62</pre>
+<p class="calibre4">NB: Du kan bruge en <code class="literal1">for</code> lække til at gå igennem alle nøgler i en dictionary.</p>
+<p><a id="calibre_link-2441" class="calibre1"></a>
+</p><pre class="programlisting"># inventory.py
+stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+
+def displayInventory(inventory):
+    print("Inventory:")
+    item_total = 0
+    for k, v in inventory.items():
+        # Skirv din kode her!
+    print("Total number of items: " + str(item_total))
+
+displayInventory(stuff)</pre>
+</div>
+<div class="book" title="List to Dictionary Function for Fantasy Game Inventory">
+<div class="titlepage">
+<div class="book">
+<div class="book">
+<h2 class="title3"><a id="calibre_link-2442" class="firstname"></a>Liste til Ordbog Funktion til Fantasy Game Inventory</h2>
+</div>
+</div>
+</div>
+<p class="calibre4">Forestil dig, at en overlevet dragefryd er repræsenteret som en liste over strenge som denne:</p>
+<p><a id="calibre_link-2443" class="calibre1"></a>
+</p><pre class="programlisting">dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']</pre>
+<p class="calibre4">Skriv en funktion med navnet <code class = "literal1"> addToInventory(inventar, addedItems)</code>, hvor parameteren <code class = "literal1"> inventar</code> er en ordbog, der repræsenterer spillerens opgørelse(som i tidligere projekt) og parameteren <code class = "literal1"> addedItems</code> er en liste som <code class = "literal1"> dragonLoot</code>. Funktionen <code class = "literal1"> addToInventory()</code> skal returnere en ordbog, der repræsenterer den opdaterede fortegnelse. Bemærk, at listen <code class = "literal1"> addedItems</code> kan indeholde multipler af samme emne. Din kode kan se sådan ud:</p>
+<p><a id="calibre_link-2444" class="calibre1"></a>
+</p><pre class="programlisting">def addToInventory(inventory, addedItems):
+    # Skirv din kode her!
+
+inv = {'gold coin': 42, 'rope': 1}
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+inv = addToInventory(inv, dragonLoot)
+displayInventory(inv)</pre>
+<p class="calibre4">Det foregående program(med din <code class = "literal1"> displayInventory()</code> funktion fra det foregående projekt) ville udføre følgende:</p>
+<p><a id="calibre_link-2445" class="calibre1"></a>
+</p><pre class="programlisting">Inventory:
+45 gold coin
+1 rope
+1 ruby
+1 dagger
+
+Total number of items: 48</pre>
+</div>
+</div>
+</div>
+</div>
+<p></p><center><a href="index.html"><img src="./pictures/toc.png"></a><a href="chapter6.html"><img src="./pictures/next.png"></a><p></p>
+			</center></div><!-- .entry-content -->
+</article><!-- #post-## -->
+
+
+
+
+
+	<div><center>Støt forfatteren ved at købe print / ebook bundle fra <a href="https://www.nostarch.com/automatestuff">No Starch Press</a> eller sperat på <a href="http://www.amazon.com/gp/product/1593275994/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1593275994&amp;linkCode=as2&amp;tag=playwithpyth-20&amp;linkId=HDM7V3T6RHC5VVN4">Amazon</a>.</center></div>
+
+	<div><center><a href="http://www.amazon.com/gp/product/1593275994/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1593275994&amp;linkCode=as2&amp;tag=playwithpyth-20&amp;linkId=HDM7V3T6RHC5VVN4"><img src="./pictures/automate_small_cover.png" alt="Automate the Boring Stuff book cover thumbnail"></a></center></div>
+
+	<div><center>Læs forfatterens andre Creative Commons licenserede Python bøger.</center></div>
+
+	<div><center>
+		<a href="https://turtleappstore.com/book"><img src="./pictures/cover_codingwithminecraft_thumb.png" alt="Coding with Minecraft book cover thumbnail" style="width: 150px"></a>
+
+        <a href="https://inventwithpython.com/cracking/"><img src="./pictures/cover_crackingcodes_thumb.png" alt="Cracking Codes with Python book cover thumbnail" style="width: 150px"></a>
+
+        <a href="https://inventwithpython.com/invent4thed"><img src="./pictures/cover_invent4th_thumb.png" alt="Invent with Python book cover thumbnail" style="width: 150px"></a>
+
+        <a href="https://inventwithscratch.com/book/"><img src="./pictures/cover_scratchprogrammingplayground_thumb.jpg" alt="Scratch Programming Playground book cover thumbnail" style="width: 150px"></a>
+
+		<a href="https://inventwithpython.com/pygame/"><img src="./pictures/cover_makinggames_thumb.png" alt="Making Games with Python and Pygame book cover thumbnail" style="width: 150px"></a>
+
+		</center>
+	</div>
+
+  </div>
+
+
+</body></html>
