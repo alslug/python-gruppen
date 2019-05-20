@@ -1,0 +1,78 @@
+Øvelses Spørgsmål
+Q: 1. Hvad er den funktion, der skaber Regex-objekter?
+
+Q: 2. Hvorfor bruges rå strenge ofte til at skabe Regex-objekter?
+
+Q: 3. Hvad returnerer søgningen () -metoden?
+
+Q: 4. Hvordan får du de faktiske strenge, der passe på mønsteret fra en passe objekt?
+
+Q: 5. I regex'en, der er oprettet fra r '(\ d \ d \ d) - (\ d \ d \ d- \ d \ d \ d \ d)', hvad dækker gruppe 0 over? Gruppe 1? Gruppe 2?
+
+Q: 6. Parenteser og perioder har specifikke betydninger i regulært udtryk syntaks. Hvordan ville du angive det, hvis du vil have en regex til at kigge på faktiske parenteser og periodekarakterer?
+
+Q: 7. Metoden findall() returnerer en liste med strenge eller en liste over stumper af strenge. Hvad får den til at returnere den ene eller den anden?
+
+Q: 8. Hvad betegner tegnet | i regulære udtryk?
+
+Q: 9. Hvilke to ting gør tegnet ? i regulære udtryk?
+
+Q: 10. Hvad er forskellen mellem + og * tegnene i regelmæssigt udtryk?
+
+Q: 11. Hvad er forskellen mellem {3} og {3,5} i regulære udtryk?
+	
+Q: 12. Hvad betyder typeklasserne \d, \w, og \s stenografi i regelmæssigt udtryk?
+	
+Q: 13. Hvad betyder typeklasserne for \D, \W og \S, og det er normalt udtryk?
+
+Q: 14. Hvordan laver du et regelmæssigt udtryk ikke-følsomt?
+
+Q: 15. På hvad kigger karakteren . normalt? Hvad sker der, hvis re.DOTALL er tildelt som det andet argument til re.compile ()?
+	
+Q: 16. Hvad er forskellen mellem disse to: .* Og .*?
+
+Q: 17. Hvad er tegnklassens syntaks, der passer til alle tal og små bogstaver breve?
+	
+Q: 18. Hvis numRegex = re.compile (r'\d+'), hvad vil numRegex.sub('X', '12 drummers, 11 pipere, fem ringe, 3 høner ') svare?
+	
+Q: 19. Hvad gør det at overføre re.VERBOSE som det andet argument til re.compile ()?
+	
+Q: 20. Hvordan ville du skrive en regex, der matcher et nummer med kommaer til hver tre cifre? Det skal matche følgende:
+'42'
+'1,234'
+'6,368,745'
+but not the following:
+'12,34,567' (which has only two digits between the commas)
+'1234' (which lacks commas)
+
+Q: 21. Hvordan vil du skrive en regex som matches det fulde navn på en som hedder Nakamoto til efternavn? Fornavnet skal have Stort forbogstav. Regex skal godkende følgende:
+'Satoshi Nakamoto'
+'Alice Nakamoto'
+'Robocop Nakamoto'
+men ikke følgende:
+'satoshi Nakamoto' (hvor fornavnet ikke er med stort forbogstav)
+'Mr. Nakamoto' (hvor en af følgende ord har et ikke bogstav karakter)
+'Nakamoto' (Som ikke har et fornavn)
+'Satoshi nakamoto' (Hvor Nakamoto ikke har stort forbogstav)
+
+Q: 22. Hvordan wil du skrive et regex som godkender en sætning hvor det første ord er enten Alice, Bob eller Carol. Det andet ord er enten eats, pets eller throws. Det treidje ord er enten apples, cats eller baseballs. Sætningen skal slutte med punktum. Denne regex skal være ligeglad med store og små bogstaver.
+Men den skal godkende følgende:
+'Alice eats apples.'
+'Bob pets cats.'
+'Carol throws baseballs.'
+'Alice throws Apples.'
+'BOB EATS CATS.'
+men ikke følgende:
+'Robocop eats apples.'
+'ALICE THROWS FOOTBALLS.'
+'Carol eats 7 cats.'
+
+
+Praktisk Projekt
+Som en praktisk opgave skriv et program som udfører følgende:
+
+Stærk kodeords opdagelse:
+Skriv en funktion der bruger en regulær udtryk til at sikre sig at kodeords strengen som er sendt er stærk. Et strækt kodeord er defineret som minimum 8 karakterer langt, indeholder både store og små bogstaver og har minimum et tal. Du vil måske have brug for at teste det op imod flrer regex møstre for at validere dens styrke.
+
+Regex version af strip()
+Skriv en funktion som der tager en streng og gør det samme som strip() streng metoden. Hvis der ikke er overført andre parametre skal de tomme karaktere i begyndelsen og enden fjernes. Ellers skal betingelserne i den anden parameter overholdes dvs. enten fjerne tomme karakterer i begyndelsen og enden. 
