@@ -1,0 +1,50 @@
+Øvelses Spørgsmål
+Q: 1. Hvad er en relativ sti i forhold til?
+
+Q: 2. Hvad starter en absolut sti med?
+
+Q: 3. Hvad gør os.getcwd() og os.chdir() funktionerne?
+
+Q: 4. Hvad er . og .. mapper?
+
+Q: 5. I C:\bacon\eggs\spam.txt, hvilken del er dir-navnet, og hvilken del er basisnavnet?
+
+Q: 6. Hvad er de tre "mode" argumenter, der kan overføres til open() funktionen?
+
+Q: 7. Hvad sker der, hvis en eksisterende fil åbnes i skrive tilstand?
+
+Q: 8. Hvad er forskellen mellem read() og readlines() metoderne?
+
+Q: 9. Hvilken datastruktur ligner en shelf værdier?
+
+Praktisk Projekt
+Som en praktisk opgave skriv et program som udfører følgende:
+
+Udvidelse af multiclipboard
+Udvid multiclipboard-programmet i dette kapitel, så det har en delete <nøgleord>
+kommandolinje argument, der vil slette nøgleordet fra shelf. Tilføj derefter en
+Delete kommandolinjeparametre, der vil sletter alle nøgleord.
+
+Mad Libs
+Opret et Mad Libs-program, der læser i tekstfiler og lader brugeren tilføje sin egen
+tekst hvor som helst ordet ADJECTIVE, NOUN, ADVERB eller VERB vises i en
+tekstfil. For eksempel kan en tekstfil se sådan ud:
+The ADJECTIVE panda walked to the NOUN and then VERB. A nearby NOUN was
+unaffected by these events.
+Programmet vil finde disse begivenheder og opfordre brugeren til at erstatte dem.
+Enter an adjective:
+silly
+Enter a noun:
+chandelier
+Enter a verb:
+screamed
+Enter a noun:
+pickup truck
+Følgende tekstfil oprettes derefter:
+The silly panda walked to the chandelier and then screamed. A nearby pickup
+truck was unaffected by these events.
+Resultaterne skal udskrives på skærmen og gemmes i en ny tekstfil.
+
+Rexex Search
+Skriv et program, der åbner alle .txt-filer i en mappe og søger efter en hvilkårlig linje som
+matcher et brugerleveret standard udtryk. Resultaterne skal udskrives til skærmen.
