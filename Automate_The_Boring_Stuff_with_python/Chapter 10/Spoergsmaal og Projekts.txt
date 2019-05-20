@@ -1,0 +1,38 @@
+Øvelses Spørgsmål
+Q: 1. Skriv en påstandserklæring, der udløser en AssertionError, hvis den variable spam er et heltal mindre end 10.
+Q: 2. Skriv en påstandserklæring, der udløser en AssertionError, hvis variablerne eeg og bacon indeholder strenge, som er de samme som hinanden, selvom deres tilfælde er forskellige (det vil sige "hello" og "hello" betragtes som det samme, og 'goodbye' og 'GOODbye' betragtes også som det samme).
+Q: 3. Skriv en påstandserklæring, der altid udløser en AssertionError.
+Q: 4. Hvad er de to linjer, som dit program skal have for at kunne kalde til logging.debug ()?
+Q: 5. Hvad er de to linjer, som dit program skal have for at logge.debug() kan sende en logfil til en fil ved navn programLog.txt?
+Q: 6. Hvad er de fem logniveauer?
+Q: 7. Hvilken linje med kode kan du tilføje for at deaktivere alle logfiler i dit program?
+Q: 8. Hvorfor er det at bruge loggningsmeddelelser bedre end at bruge print() for at vise den samme besked?
+Q: 9. Hvad er forskellene mellem knapperne Step, Over, and Out i Debug Control-vinduet?
+Q: 10. Når du har klikket på Gå i vinduet Fejlfindingskontrol, hvornår stopper debuggeren?
+Q: 11. Hvad er et breakpoint?
+Q: 12. Hvordan indstiller du et breakpoint på en kode linje i IDLE?
+
+Praktisk Projekt
+Som en praktisk opgave skriv et program som udfører følgende:
+
+Debuggin Coin Toss
+Følgende program er beregnet til at være en simpel mønt kaste gætte spil. Spilleren
+får to gæt (det er et let spil). Programmet har dog flere fejl i det.
+Kør gennem programmet et par gange for at finde de fejl, der holder programmet væk fra
+fungerer korrekt.
+
+import random
+guess = ''
+while guess not in ('heads', 'tails'):
+	print('Guess the coin toss! Enter heads or tails:')
+	guess = input()
+toss = random.randint(0, 1) # 0 is tails, 1 is heads
+if toss == guess:
+	print('You got it!')
+else:
+	print('Nope! Guess again!')
+	guesss = input()
+	if toss == guess:
+		print('You got it!')
+	else:
+		print('Nope. You are really bad at this game.')
