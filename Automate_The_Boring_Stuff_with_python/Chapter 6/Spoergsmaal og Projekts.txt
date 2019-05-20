@@ -1,0 +1,49 @@
+Praktiske Spørgsmål
+Q: 1. Hvad er escape karakterer?
+	
+Q: 2. Hvad representerer \n og \t escape karaktererne?
+	
+Q: 3. Hvordan indsætter man en \ backslash karakter i en streng?
+
+Q: 4. Streng værdien "Howl's Moving Castle" er en godkendt streng. Hvorfor er det ikke et problem at abostroffen i ordet >Howl's< er escaped?
+	
+Q: 5. Hvis du ikke vil indsætte \n i din streng, hvordan kan du lave en streng med flere linje skift i den?
+
+Q: 6. Hvilket resultat giver de forskellige strenge?
+'Hello world!'[1]
+'Hello world!'[0:5]
+'Hello world!'[:5]
+'Hello world!'[3:]
+
+Q: 7. Hvilket resultat giver de forskellige udtryk?
+'Hello'.upper()
+'Hello'.upper().isupper()
+'Hello'.upper().lower()
+	
+Q: 8. Hvilket resultat giver de forskellige udtryk?
+'Remember, remember, the fifth of November.'.split()
+'-'.join('There kan be only one.'.split())
+	
+Q: 9. Hvilken streng metode kan du bruge for at højre justerer, venstre justerer, og centerer en streng?
+	
+Q: 10. Hvordan kan du fjerne overskydende tomme karakterer fra begyndelsen og slutningen af en streng?
+
+Øvelsesprojekter
+Til praksis, skriv et program, der gør følgende.
+
+Bordprinter
+Skriv en funktion med navnet printTable (), der indeholder en liste over stringslister og viser den i en velorganiseret tabel med hver kolonne retfærdiggjort. Antag at alle de indre lister vil indeholde det samme antal strings. F.eks. Kan værdierne se sådan ud:
+
+tableData = [['apples', 'oranges', 'cherries', 'banana'],
+['Alice', 'Bob', 'Carol', 'David'],
+['dogs', 'cats', 'moose', 'goose']]
+
+Din printTable() funktion ville udskrive følgende:
+
+   apples Alice  dogs
+  oranges   Bob  cats
+ cherries Carol moose
+   banana David goose
+
+Tip: Din kode skal først finde den længste streng i hver af de indre lister, så hele søjlen kan være bred nok til at passe alle strengene.
+Du kan gemme den maksimale bredde af hver kolonne som en liste over heltal. Funktionen printTable() kan begynde med colWidths = [0] * len (tableData), som vil oprette en liste med det samme antal 0 værdier som antallet af indre lister i tableData. På den måde kan colWidths [0] gemme bredden af den længste streng i tableData [0], colWidths [1] kan gemme bredden af den længste streng i tableData [1] og så videre. Du kan så finde den største værdi i colWidths-listen for at finde ud af, hvilket heltalsbredde der skal overføres til rjust () strengmetoden.
