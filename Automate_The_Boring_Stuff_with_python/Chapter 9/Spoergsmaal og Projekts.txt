@@ -1,0 +1,34 @@
+Øvelses Spørgsmål
+Q: 1. Hvad er forskellen mellem shutil.copy() og shutil.copytree()?
+
+Q: 2. Hvilken funktion bruges til at omdøbe filer?
+
+Q: 3. Hvad er forskellen mellem sletningsfunktionerne i send2trash og shutil-modulerne?
+
+Q: 4. ZipFile-objekter har en close() metode ligesom File Objects close() -metode. Hvilken ZipFile-metode svarer til File Objects 'open() -metoden?
+
+Praktisk Projekt
+Som en praktisk opgave skriv et program som udfører følgende:
+
+Selektiv kopi
+Skriv et program, der går gennem et mappetræ og søger efter filer med et givent
+filtypenavn (f.eks. .pdf eller .jpg). Kopier disse filer uanset sted
+de er i en ny mappe.
+
+Sletning af unødvendige filer
+Det er ikke ualmindeligt for nogle få unødige men humongøse filer eller mapper at
+fylde Størstedelen af ​​pladsen på din harddisk. Hvis du forsøger at frigøre plads på
+din computer, vil du få mest for pengene ved at slette de mest massive af de
+uønskede filer. Men først skal du finde dem.
+Skriv et program, der går gennem et mappetræ og søger usædvanligt
+store filer eller mapper. Vi antager at filstørrelse på mere end 100 MB.
+(Husk at for at få en fils størrelse, kan du bruge os.path.getsize () fra os-modulet.)
+Udskriv disse filer med deres absolutte sti på skærmen.
+
+Fyldning i hullerne
+Skriv et program, der finder alle filer med et givet præfiks, såsom spam001.txt,
+spam002.txt og så videre i en enkelt mappe og lokaliserer eventuelle huller i nummereringen
+(f.eks. hvis der er en spam001.txt og spam003.txt men ikke spam002.txt). Omdøber
+Programmet alle de efterfølgede filer for at lukke dette nummerings hul.
+Som en ekstra udfordring, skriv et andet program, der kan indsætte huller i nummerede
+filer, så en ny fil kan tilføjes.
