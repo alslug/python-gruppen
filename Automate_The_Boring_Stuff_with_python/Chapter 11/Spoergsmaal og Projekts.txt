@@ -1,0 +1,65 @@
+Øvelses Spørgsmål
+Q: 1. Beskriv kort forskellene mellem webbrowser, anmodninger,
+BeautifulSoup og Seleniummoduler.
+Q: 2. Hvilken type objekt returneres af requests.get ()? Hvordan kan du få adgang til
+downloadet indhold som en strengværdi?
+Q: 3. Hvilken anmodning metode kontrollerer, at downloaden fungerede?
+Q: 4. Hvordan kan du få HTTP-statuskoden til et Forespørgselssvar?
+Q: 5. Hvordan gemmer du en anmodning om svar på en fil?
+Q: 6. Hvad er tastaturgenvejen til at åbne en browsers udviklingsværktøjer?
+Q: 7. Hvordan kan du se (i udviklerens værktøjer) HTML'et af et bestemt element
+på en webside?
+Q: 8. Hvad er CSS-vælgerstrengen, der ville finde elementet med et id
+attribut af main?
+Q: 9. Hvad er CSS-vælgerstrengen, der ville finde elementerne med en CSS-klasse
+af højdepunktet?
+Q: 10. Hvad er CSS-vælgerstrengen, der ville finde alle <div> -elementerne indeni
+et andet <div> element?
+Q: 11. Hvad er CSS-vælgerstrengen, som ville finde <knappen> elementet med a
+værdiattribut sat til favorit?
+Q: 12. Sig, du har et smukt suppe-tag-objekt, der er gemt i den variable spam til
+element <div> Hej verden! </ div>. Hvordan kunne du få en streng 'Hej verden!'
+fra Tag-objektet?
+Q: 13. Hvordan ville du gemme alle attributterne af et Beautiful Soup Tag-objekt i a
+variabel navngivet linkElem?
+Q: 14. Running import Selenium virker ikke. Hvordan importerer du korrekt
+Seleniummodul?
+Q: 15. Hvad er forskellen mellem find_element_ * og find_elements_ *
+metoder?
+Q: 16. Hvilke metoder har Selen's WebElement-objekter til at simulere musen
+klik og tastaturtaster?
+Q: 17. Du kunne ringe send_keys (Keys.ENTER) på Submit-knappen WebElement
+objekt, men hvad er en nemmere måde at indsende en formular med Selen på?
+Q: 18. Hvordan kan du simulere at klikke på browseren Forward, Back og Refresh
+knapper med Selenium?
+
+Praktisk Projekt
+Som en praktisk opgave skriv et programer som udfører følgende:
+
+Command Line Emailer
+Skriv et program, der tager en e-mail-adresse og tekststreng fra kommandoen
+linjen og derefter bruger Selenium, logger ind på din e-mail-konto og sender en email til
+strengen til den angivne adresse. (Du vil måske oprette en separat email
+redegøre for dette program.)
+Dette ville være en god måde at tilføje en underretningsfunktion til dine programmer. Kunne
+du Skrive et lignende program til at sende beskeder fra en Facebook eller Twitter konto.
+
+Image Site Downloader
+Skriv et program, der går til et fotodelingssted som Flickr eller Imgur, søger efter
+en kategori af billeder og downloader derefter alle de resulterende billeder. Du kunne skrive
+et program der virker med ethvert fotosite, der har en søgefunktion.
+
+2048
+2048 er et simpelt spil hvor du kombinerer fliser ved at glide dem op, ned, til venstre eller
+højre med piletasterne. Du kan faktisk få en ret høj score ved gentagne gange
+glider i et op, højre, ned og venstre mønster igen og igen. Skriv en
+program der åbner spillet på https://gabrielecirulli.github.io/2048/ og
+Fortsæt med at sende, højre, nede og venstre tastetryk for automatisk at spille spillet.
+
+Link-verifikation
+Skriv et program, der, givet webadressen på en webside, forsøger at downloade
+hver linket side på siden. Programmet skal flagge alle sider, der har en 404
+"Ikke fundet" statuskode og udskrive dem som brudte links.
+
+
+[2] Svaret er nej.
