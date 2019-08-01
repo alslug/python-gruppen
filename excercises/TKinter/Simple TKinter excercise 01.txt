@@ -1,0 +1,26 @@
+Created by: Sten N. Herbst
+Data: 20180801
+
+		Simple Class excercise 01:
+1. 	Before you start read the following http://effbot.org/tkinterbook/
+2. 	In the following excercise please incorporate logging. As used here https://automatetheboringstuff.com/chapter10/ see Logging
+
+		1. Create a class:
+1. 	Create a class named my_gui.
+2. 	The class sould have 3 functions 1. The default initial function 2. A function called my_print 3. A function called form_update
+3. 	In the init function create a string variable called my_string this string should contain "This is my string".
+	Create a "my_label1" with the text based upon my_string.
+	Use pack
+	run the mainloop()
+4. 	The my_print function should print the contents of my_string
+5.	form_update should run master.update
+
+PS: remeber to incorporate the "self" parameter in each class function
+
+	2. Create the calling code
+1.	Create master to be based upon Tkinter
+2.	Create mygui to be based upon my_gui
+2.	Call the my_print function in the class
+3.	Change the value my_string to "I changed my string"
+4.	Call the my_print function in the class
+5.	Upodate the gui with mygui.form_update()
