@@ -16,5 +16,5 @@ PS: remeber to incorporate the "self" parameter in each class function
 	2. Create the calling code
 1. Create myclass to be based upon my_class
 2. Call the my_print function in the class
-3. Change the value my_print to "I changed my string"
+3. Change the value my_string to "I changed my string"
 4. Call the my_print function in the class
