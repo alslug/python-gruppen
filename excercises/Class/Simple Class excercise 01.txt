@@ -1,0 +1,20 @@
+Created by: Sten N. Herbst
+Data: 20180801
+
+	Simple Class excercise 01:
+1. Before you start read the following https://www.w3schools.com/python/python_classes.asp
+2. In the following excercise please incorporate logging. As used here https://automatetheboringstuff.com/chapter10/ see Logging
+
+	1. Create the class:
+1. Create a class named my_class.
+2. The class sould have 2 functions 1. The default initial function  2. A function called my_print
+3. In the init function create a string variable called my_string this string should contain "This is my string".
+4. The my_print function should print the contents of my_string
+
+PS: remeber to incorporate the "self" parameter in each class function
+
+	2. Create the calling code
+1. Create myclass to be based upon my_class
+2. Call the my_print function in the class
+3. Change the value my_print to "I changed my string"
+4. Call the my_print function in the class
