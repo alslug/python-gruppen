@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 02-05
+Simple Tkinter class with Label, entry, frame, button, functions and methods.
+With 2 frame. By use of vairables. Swaping text from entry text field over to text label by pushing the button

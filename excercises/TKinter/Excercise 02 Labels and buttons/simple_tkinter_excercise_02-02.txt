@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 02-02
+Simple Tkinter class with Label, button, functions and methods.
+Changing the label text by pushing the button. This time througt at vairable

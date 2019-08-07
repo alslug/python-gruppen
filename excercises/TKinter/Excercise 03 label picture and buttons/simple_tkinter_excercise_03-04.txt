@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 03-04
+Simple Tkinter class with Picture Label, button, functions and methods.
+A Picture label showing a .jpg picture, the label picture has 5 buttons assigned that can change the picture

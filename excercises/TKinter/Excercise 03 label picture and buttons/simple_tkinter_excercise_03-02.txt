@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 03-02
+Simple Tkinter class with Picture Label, button, functions and methods.
+Tow label showing a .ppm picture, each label picture has 2 buttons assigned that can change the picture
