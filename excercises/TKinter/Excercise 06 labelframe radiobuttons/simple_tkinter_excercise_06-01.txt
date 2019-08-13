@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 06-01
+Simple Tkinter class with Label, entry, button, functions and methods.
+A labelframe containing a label a entry and a button. Each time the button is pressed the text from the label swappes to the entry.

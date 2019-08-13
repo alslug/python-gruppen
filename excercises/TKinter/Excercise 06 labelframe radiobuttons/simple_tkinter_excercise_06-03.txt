@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 06-03
+Simple Tkinter class with Label, entry, button, functions and methods.
+A labelframe containing a label 3 radiobuttons based upon a LIST. each selection gives another text in the label.
