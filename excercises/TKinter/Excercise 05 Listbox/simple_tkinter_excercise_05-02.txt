@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 05-02
+Simple Tkinter class with Label, listbox, entry, buttons, functions and methods.
+This project shows a label with the text "Wish List:", a listbox with a predefined list ["Winnie Poe", "Guitar", "Hot Wheels Track", "Camera"], a entry containing the text "Nintendo Switch" and  two button with the text "Add a wish" and "Delete a Wish". This time with at scrollbar for the listbox.
