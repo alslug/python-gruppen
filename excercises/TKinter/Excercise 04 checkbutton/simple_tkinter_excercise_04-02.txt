@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 04-02
+Simple Tkinter class with checkbutton, button, functions and methods.
+A checkbutton with label text showing "Checked". Each time the checkbutton is changed the status is printed
