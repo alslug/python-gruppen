@@ -1,0 +1,4 @@
+Title: Simple TKinter Class 08-01
+Simple Tkinter class with Label, entry, button, functions and methods.
+Window showing a option menu containing values "one", "two", "three" and a label. Both widgets have the same StringVar parameter.
+The optionmenu calls the function my_click

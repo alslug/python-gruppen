@@ -1,0 +1,5 @@
+Title: Simple TKinter Class 10-01
+Simple Tkinter class with Label, button, functions and methods using place.
+Windows showing a label and a button using place.
+label is placed x=0, y=0
+button is placed x=20, y=20

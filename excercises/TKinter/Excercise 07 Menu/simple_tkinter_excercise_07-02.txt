@@ -1,0 +1,8 @@
+Title: Simple TKinter Class 07-02
+Simple Tkinter class with Label, entry, button, functions and methods.
+label with a simple menu with 3 dropdown menues "File", "Edit", "Help".
+"File" opens another menu with "Open", "Save", "Exit"
+"Edit" opens another menu with "Cut", "Copy", "Paste"
+"Help" opens another menu with "About", "Save", "Exit"
+"File->Exit" runs the functionmaster.quit
+All other menu entries runs my_click

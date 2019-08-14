@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 09-01
+Simple Tkinter class with panedwindow, Label.
+Window showing a paned window with 2 labels with text "Top Pane" and "Buttom Pane"

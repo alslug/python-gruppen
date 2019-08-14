@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 12-01
+Simple Tkinter class with Label, entry, button, functions and methods.
+Window showing 1 labes and 1 spinbox. Both widget should point at the same StringVar

@@ -1,0 +1,3 @@
+Title: Simple TKinter Class 07-01
+Simple Tkinter class with Label, entry, button, functions and methods.
+label with a simple menu with 2 entries "Hello", "Quit". "Hello" calls a function my_click that print a message. "Quit" runs master.quit
