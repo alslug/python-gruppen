@@ -1,0 +1,5 @@
+Title: Simple TKinter Class 13-01
+Simple Tkinter class with Label, entry, button, functions and methods.
+Window showing 1 labes and 1 textbox.
+Label contain text "Text Widget"
+Textbox contains "When, in disgrace with fortune and men's eyes,\nI all alone beweep my outcast state,\nAnd trouble deaf heaven with my bootless cries,\nAnd look upon myself and curse my fate"

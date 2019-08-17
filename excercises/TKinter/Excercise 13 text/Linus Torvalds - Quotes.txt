@@ -1,0 +1,36 @@
+Linus Torvalds quotes Showing 1-16 of 16
+1. "Talk is cheap. Show me the code."
+- Linus Torvalds
+2. "software is like sex : it's better when it's free.."
+- Linus Torvalds
+3. "Given enough eyeballs, all bugs are shallow."
+- Linus Torvalds
+4. "Intelligence is the ability to avoid doing work, yet getting the work done."
+- Linus Torvalds
+5. "Bad programmers worry about the code. Good programmers worry about data structures and their relationships."
+- Linus Torvalds
+6. "Only wimps use tape backup. REAL men just upload their important stuff on ftp and let the rest of the world mirror it."
+- Linus Torvalds
+7. "I am not a visionary. I'm an engineer. I'm happy with the people who are wandering around looking at the stars but I am looking at the ground and I want to fix the pothole before I fall in."
+- Linus Torvalds
+8. "I like offending people, because I think people who get offended should be offended."
+- Linus Torvalds
+9. "I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships."
+- Linus Torvalds
+10. "Don't ever make the mistake [of thinking] that you can design something better than what you get from ruthless massively parallel trial-and-error with a feedback cycle. That's giving your intelligence much too much credit."
+- Linus Torvalds
+11. "I'm a bastard. I have absolutely no clue why people can ever think otherwise. Yet they do. People think I'm a nice guy, and the fact is that I'm a scheming, conniving bastard who doesn't care for any hurt feelings or lost hours of work if it just results in what I consider to be a better system.
+
+And I'm not just saying that. I'm really not a very nice person. I can say 'I don't care' with a straight face, and really mean it."
+- Linus Torvalds
+12. "I'd argue that everybody wants to do something that matters"
+- Linus Torvalds
+13. "Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program."
+- Linus Torvalds
+14. "Do no harm"
+- Linus Torvalds
+15. "I want to decide for myself. I'm very much against unnecessary rules imposed by society. I'm a big believer that you should be able to do whatever you want in the privacy of your own home as long as you don't hurt anybody else. Any law saying otherwise is a very, very broken law. And there are laws that say otherwise. I find
+some scary rules, especially some that are imposed on schools and children. Imagine even thinking of imposing rules about teaching evolution, and taking that into the wrong direction. That I find scary. This is social conscience rearing its ugly head in places it really has nothing at all to do with."
+- Linus Torvalds, Just for Fun: The Story of an Accidental Revolutionary
+16. "Benevolent dictator? No, I'm just lazy. I try to manage by not making decisions and letting things occur naturally. That's when you get the best results."
+- Linus Torvalds, Just for Fun: The Story of an Accidental Revolutionary

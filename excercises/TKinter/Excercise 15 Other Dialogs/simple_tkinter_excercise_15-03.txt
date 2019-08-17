@@ -1,0 +1,5 @@
+Title: Simple TKinter Class 15-03
+Simple Tkinter class with Button, Message, functions and methods.
+Window showing 3 button.
+When the button "Open File" is pushed a Open File window is showed
+When the button "Save As File" is pushed a Save As File window is showed

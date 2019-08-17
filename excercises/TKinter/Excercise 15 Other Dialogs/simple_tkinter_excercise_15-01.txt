@@ -1,0 +1,4 @@
+Title: Simple TKinter Class 15-01
+Simple Tkinter class with Button, Message, functions and methods.
+Window showing 1 button.
+When the button "Show Color" is pushed a color dialog is showed selected the color red

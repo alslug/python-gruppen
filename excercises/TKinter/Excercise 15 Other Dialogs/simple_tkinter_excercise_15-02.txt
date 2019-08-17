@@ -1,0 +1,6 @@
+Title: Simple TKinter Class 15-02
+Simple Tkinter class with Button, Message, functions and methods.
+Window showing 3 button.
+When the button "Type in a String" is pushed a Type in a String window is showed
+When the button "Show warning" is pushed a Type in a Integer window is showed
+When the button "Show error" is pushed a Type in a Float window is showed

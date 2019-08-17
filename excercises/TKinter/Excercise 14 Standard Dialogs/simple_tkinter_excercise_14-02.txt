@@ -1,0 +1,7 @@
+Title: Simple TKinter Class 14-02
+Simple Tkinter class with Button, Message, functions and methods.
+Window showing 4 button.
+When the button "Show askquestion" is pushed a askquestion window is showed
+When the button "Show askokcancel" is pushed a askokcancel window is showed
+When the button "Show askyesno" is pushed a askyesno window is showed
+When the button "Show askretrycancel" is pushed a askretrycancel window is showed

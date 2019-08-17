@@ -1,0 +1,6 @@
+Title: Simple TKinter Class 14-01
+Simple Tkinter class with Button, Message, functions and methods.
+Window showing 3 button.
+When the button "Show info" is pushed a info window is showed
+When the button "Show warning" is pushed a warning window is showed
+When the button "Show error" is pushed a error window is showed

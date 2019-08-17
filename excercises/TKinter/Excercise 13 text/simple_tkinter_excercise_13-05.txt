@@ -1,0 +1,5 @@
+Title: Simple TKinter Class 13-05
+Simple Tkinter class with Label, entry, button, functions and methods.
+Window showing 1 labes and 1 textbox and 2 scrollbars for x and y.
+Label contain text "Text Widget"
+Textbox contains the text from the file Linus Torvalds - Quotes.txt
