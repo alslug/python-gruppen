@@ -1,2 +1,3 @@
 https://automatetheboringstuff.com/
 http://effbot.org/tkinterbook/
+https://pandas.pydata.org/pandas-docs/stable/
