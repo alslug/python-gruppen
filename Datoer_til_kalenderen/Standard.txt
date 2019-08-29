@@ -1,0 +1,7 @@
+Vi mødes primært til en at lave snak eller sparring om python og andre programmering sprog.
+Vi vil fokusere på private projekter eller temaer som TKinter eller Pygame ol.
+Er du ny bruger kan vi hjælpe dig med at komme videre i Python.
+Er du rutineret bruger vil vi gerne høre om dine erfaringer med Python.
+Der vil være rig mulighed for at lave nogle fælles projekter.
+
+PS: Programmeringen er ikke relateret til kun Linux. Så har du kun en Windows maskine så kom bare alligevel. 
