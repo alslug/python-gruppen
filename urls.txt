@@ -2,3 +2,4 @@ https://automatetheboringstuff.com/
 http://effbot.org/tkinterbook/
 https://pandas.pydata.org/pandas-docs/stable/
 https://nerdparadise.com/programming/pygame/part1
+https://www.pygame.org/docs/
