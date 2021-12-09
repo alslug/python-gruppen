@@ -1,0 +1,29 @@
+denneMappe='/mnt/minlvhdd/Xmindisk/gutenbergzip/'
+339-0.zip
+zipfil='/mnt/minlvhdd/Xmindisk/gutenbergzip/339-0.zip'
+denneMappe='/mnt/minlvhdd/Xmindisk/temp/Z1'
+339-0.txt
+kopierer /mnt/minlvhdd/Xmindisk/temp/Z1/339-0.txt til /mnt/minlvhdd/Xmindisk/output/txt/101.txt
+inday10.zip
+zipfil='/mnt/minlvhdd/Xmindisk/gutenbergzip/inday10.zip'
+Traceback (most recent call last):
+  File "/home/joergen/eclipse-workspace/projects/gutenberg/gut/rrr.py", line 108, in <module>
+    system1.gennemGaaMappe(highestfolder)
+  File "/home/joergen/eclipse-workspace/projects/gutenberg/gut/rrr.py", line 76, in gennemGaaMappe
+    nyMappe = self.myunzip( pFil )
+  File "/home/joergen/eclipse-workspace/projects/gutenberg/gut/rrr.py", line 64, in myunzip
+    zipObject.extractall(unzipMappe)
+  File "/usr/lib/python3.8/zipfile.py", line 1647, in extractall
+    self._extract_member(zipinfo, path, pwd)
+  File "/usr/lib/python3.8/zipfile.py", line 1700, in _extract_member
+    with self.open(member, pwd=pwd) as source, \
+  File "/usr/lib/python3.8/zipfile.py", line 1571, in open
+    return ZipExtFile(zef_file, mode, zinfo, pwd, True)
+  File "/usr/lib/python3.8/zipfile.py", line 819, in __init__
+    self._decompressor = _get_decompressor(self._compress_type)
+  File "/usr/lib/python3.8/zipfile.py", line 720, in _get_decompressor
+    _check_compression(compress_type)
+  File "/usr/lib/python3.8/zipfile.py", line 700, in _check_compression
+    raise NotImplementedError("That compression method is not supported")
+NotImplementedError: That compression method is not supported
+
