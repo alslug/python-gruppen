@@ -2,10 +2,25 @@ Intro til Linux og vores standard installation Ubuntu Mate for nybegyndere
 Vejledningerne skal indeholde følgende:
 1. instroduktion til Linux hvad er linux gerne med en beskrivelse af de basale komponenter
 	- Kernen Linux
-	- Fil Tilgangen basale mapper vises
-	- /etc  Denne mappe indeholder alle indstillings filerne
+	- OS Fil Tilgangen basale mapper vises
+		+ /etc  Denne mappe indeholder alle indstillings filerne
 		+ /dev  Denne mappen indeholder alle Enheder
 		+ /home  Denne mappe indeholder alle brugere på systemet 
 		+ /media  Denne mappe indeholder USB nøgler
-	- Skrivebords miljø
-2. Introduktion til Ubuntu Mate's standard programmer Filhåndtering(Caje)
+	- Skrivebords miljø her forkalres at skrivebordet bare er en overflade som 
+2. Introduktion til Ubuntu Mate's standard programmer
+	- Filhåndtering(Caja)
+	- Browser (Firefox)
+	- Text Redigering
+	- Visning af billeder
+	- Afspilning af lyd
+	- Afspilning af Video
+3. Introduktion til Libra Office
+	- Writer (
+	- Calc
+	- Impress
+	- Draw
+	- Math
+4. Installation af andre programmer
+	- Software Butique
+	- Tredije parts programmer (Google Chrome)
