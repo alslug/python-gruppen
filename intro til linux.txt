@@ -1,4 +1,4 @@
-Intro til Linux og vores standard installation Ubuntu Mate for nybegyndere
+Intro til nye Linux og vores standard installation Ubuntu Mate for nybegyndere
 Vejledningerne skal indeholde følgende:
 1. instroduktion til Linux hvad er linux gerne med en beskrivelse af de basale komponenter
 	- Kernen Linux
