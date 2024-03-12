@@ -16,7 +16,7 @@ Vejledningerne skal indeholde følgende:
 	- Afspilning af lyd
 	- Afspilning af Video
 3. Introduktion til Libra Office
-	- Writer (
+	- Writer
 	- Calc
 	- Impress
 	- Draw
